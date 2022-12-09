@@ -1,0 +1,322 @@
+import java.util.*;
+
+public class NumbersToWordsConverter
+{
+   public static String getOnes(int num)
+   {
+      int result = num % 10; 
+      
+      if (result == 1)
+      {
+         return "One";
+      }
+      else if (result == 2)
+      {
+         return "Two";
+      }
+      else if (result == 3)
+      {
+         return "Three";
+      }
+      else if (result == 4)
+      {
+         return "Four";
+      }
+      else if (result == 5)
+      {
+         return "Five";
+      }
+      else if (result == 6)
+      {
+         return "Six";
+      }
+      else if (result == 7)
+      {
+         return "Seven";
+      }
+      else if (result == 8)
+      {
+         return "Eight";
+      }
+      else if (result == 9)
+      {
+         return "Nine";
+      }
+
+     return "";
+   }
+   
+   
+   /*
+      Create a function name GetTens that extracts the tens part of a number
+      example:  1231 = 3 = returns the word "Thirty"
+      Challenge: Without using an array
+   */   
+   public static String getTens(int num)
+   {
+            
+      int result = num % 100;
+      
+      if (result == 10)
+      {
+         return"Ten";
+      }
+      else if (result == 11)
+      {
+         return"Eleven";
+      }
+      else if (result == 12)
+      {
+         return "Twelve";
+      }
+      else if (result == 13)
+      {
+         return "Thirteen";
+      }
+      else if (result == 14)
+      {
+         return "Fourteen";
+      }
+      else if (result == 15)
+      {
+         return "Fifteen";
+      }
+      else if (result == 16)
+      {
+         return "Sixteen";
+      }
+      else if (result == 17)
+      {
+         return "Seventeen";
+      }
+      else if (result == 18)
+      {
+         return "Eighteen";
+      }
+      else if (result == 19)
+      {
+         return "Nineteen";
+      }
+      if (result >= 20)
+      {
+         result = result - (num%10);
+         if (result == 20)
+         {
+            return "Twenty";
+         }
+      else if (result == 30)
+      {
+         return "Thirty";
+      }
+      else if (result == 40)
+      {
+         return "Forty";
+      }
+      else if (result == 50)
+      {
+         return "Fifty";
+      }
+      else if (result == 60)
+      {
+         return "Sixty";
+      }
+      else if (result == 70)
+      {
+         return "Seventy";
+      }
+      else if (result == 80)
+      {
+         return "Eighty";
+      }
+      else if (result == 90)
+      {
+         return "Ninety";
+      }
+      }
+
+      return "";
+
+      
+   }
+   
+   /*
+      Create a function name GetHundreds that extracts the hundreds part of a number
+      example:  1231 = 2 = returns the word "Two hundred"
+      Challenge: Without using an array      
+   */   
+   public static String getHundreds(int num)
+   {
+      int result = num % 1000;
+      
+      
+      if (result >=100)
+      {
+         result = result - (num%100);
+      if (result == 100)
+      {
+         return "One Hundred";
+      }
+      else if (result == 200)
+      {
+         return "Two Hundred";
+      }
+      else if (result == 300)
+      {
+         return "Three Hundred";
+      }
+      else if (result == 400)
+      {
+         return "Four Hundred";
+      }
+      else if (result == 500)
+      {
+         return "Five Hundred";
+      }
+      else if (result == 600)
+      {
+         return "Six Hundred";
+      }
+      else if (result == 700)
+      {
+         return "Seven Hundred";
+      }
+      else if (result == 800)
+      {
+         return "Eight Hundred";
+      }
+      else if (result == 900)
+      {
+         return "Nine Hundred";
+      }
+      }
+      return "";
+   }   
+   
+   
+   /*
+      Create a function name GetThousands that extracts the thousands part of a number
+      example:  1231 = 1 = returns the word "One Thousand"
+      Challenge: Without using an array      
+   */   
+   public static String getThousands(int num)
+   {
+      int result = num % 10000;
+      
+      if (result >= 1000)
+      {
+         result = result - (num%1000);
+         
+         if (result == 1000)
+         {
+            return "One Thousand";
+         }
+         else if (result == 2000)
+         {
+            return "Two Thousand";
+         }
+         else if (result == 3000)
+         {
+            return "Three Thousand";
+         }
+         else if (result == 4000)
+         {
+            return "Four Thousand";
+         }
+         else if (result == 5000)
+         {
+            return "Five Thousand";
+         }
+         else if (result == 6000)
+         {
+            return "Six Thousand";
+         }
+         else if (result == 7000)
+         {
+            return "Seven Thousand";
+         }
+         else if (result == 8000)
+         {
+            return "Eight Thousand";
+         }
+         else if (result == 9000)
+         {
+            return "Nine Thousand";
+         }
+      }
+      
+      
+      return "";
+      
+   }   
+   
+   /*
+      Create a function name convert that accepts 1 integer value parameter, the number,
+      and convert it to words.
+      
+      This function calls the other 4 functions:
+      getOnes, getTens, getHundreds, getThousands so that it can
+      convert the number to words    
+      
+      
+      Minimum allowed value: 1
+      Maximum allowed value: 9999
+      
+      If the value of the number is out of range, return "INVALID"    
+      
+      Challenge: Without using an array                    
+   */
+   
+   public static String convert(int number)
+   {
+      String result = getOnes(number);
+      String resultTens = getTens(number);
+      String resultHun = getHundreds(number);
+      String resultThous = getThousands(number);
+      if (number >= 1 && number <= 9999)
+      {
+          
+          if (number % 100 != 11 && number % 100 != 12 && number % 100 != 13 && number % 100 != 14 && number % 100 != 15 && number % 100 != 16 && number % 100 != 17 && number % 100 != 18 && number % 100 != 19)
+          {
+            System.out.println("Output: " + resultThous + " " + resultHun + " "+ resultTens + " "+result);
+          }
+         else { System.out.println("Output: " + resultThous + " " + resultHun + " "+ resultTens); }
+
+      }else {
+         System.out.println("Output: INVALID");
+      }
+      
+      return"";
+   }
+
+   public static void main(String[] args)
+   {
+      Scanner con = new Scanner(System.in);
+      int number;
+      
+      /*
+         Test the function that you have created name convert here in main method
+         by allowing the user to enter a number either 1 to 9999 and convert it to words.
+         DO NOT test the other functions here: getTens, getOnes, getHundreds, getThousands
+         Only call the function convert here
+         
+         Example Program Run:
+         
+         Enter a number (1 - 99999): 3415
+         Output: Three-thousand four-hundred fifteen
+         
+         Example Program Run:         
+         Enter a number (1 - 99999): 9099
+         Output: Nine-thousand Ninety-Nine
+         
+         Example Program Run:
+         Enter a number (1 - 99999): 418
+         Output: Four-Hundred Eighteen
+      */
+      
+      System.out.println("Enter a number (1-99999): ");
+      number = con.nextInt();
+            
+            
+      convert(number);
+   }
+}
